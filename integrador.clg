@@ -1,0 +1,57 @@
+algoritmo Integrador;
+// Síntese
+//  Objetivo:  Obter integral da função x
+//  Entrada : subdivisões, inicio e fim
+//  Saída   : integral da função no intervalo
+
+
+principal
+	// Declarações
+		real x, begin, end;
+		inteiro parts;
+	// Instruções
+	escreva("insira numero desejado de subdivisoes:");
+	leia(parts);
+	escreval("");
+	escreval("insira inicio:");
+	leia(begin);
+	escreval("");
+	escreval("insira fim:");
+	leia(end);
+
+	escreval("INTEGRAL = ", integrador(parts, begin, end));
+
+	
+	
+
+fimPrincipal
+
+funcao real integrador(inteiro zetta, real in, real fin)
+	inteiro i;
+	real deltax, soma;
+	deltax = (fin-in)/zetta;
+	soma = 0;
+	para(i de 0 ate (zetta-1) passo 1)faca
+		soma = soma + deltax*fdex(in + i*deltax);
+	fimPara
+	retorna soma;
+fimFuncao
+
+funcao real fdex(real x)
+	retorna 3*x*x*x + 2*x*x + x - 93;
+			//esse trecho deve ser alterado com a função arbitrária 
+			//que o usuário buscar obter a integral no dado ponto
+			//Logo, o programa pode ser adaptado para receber qualquer
+			//função arbitrária.
+fimFuncao
+
+funcao real elevador(real x, inteiro y) //eleva x a y
+	inteiro i;
+	real soma;
+	soma = 1;
+	para(i de 0 ate y passo 1)faca
+		soma = soma*x;
+	fimPara
+	retorna soma;
+fimFuncao
+
